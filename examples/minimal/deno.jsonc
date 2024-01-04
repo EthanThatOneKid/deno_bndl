@@ -3,7 +3,7 @@
     "lib": ["dom"]
   },
   "tasks": {
-    "bundle": "deno run -Ar https://deno.land/x/bundle/main.ts --input ./main.ts --output ./static/main.js",
+    "bundle": "deno run -Ar https://deno.land/x/bndl/main.ts --input ./main.ts --output ./static/main.js",
     "start": "deno run -Ar https://deno.land/std/http/file_server.ts ./static"
   }
 }
