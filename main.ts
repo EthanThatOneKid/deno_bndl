@@ -1,6 +1,6 @@
 import { build } from "https://deno.land/x/esbuild@v0.19.11/mod.js";
 import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.8.3/mod.ts";
-import { parseArgs } from "https://deno.land/std@0.210.0/cli/mod.ts";
+import { parseArgs } from "https://deno.land/std@0.211.0/cli/mod.ts";
 
 async function main() {
   const parsedArgs = parseArgs(Deno.args, {
