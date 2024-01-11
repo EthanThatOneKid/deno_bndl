@@ -1,4 +1,5 @@
 import { build } from "https://deno.land/x/esbuild@v0.19.11/mod.js";
+import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.8.3/mod.ts";
 import { parseArgs } from "https://deno.land/std@0.210.0/cli/mod.ts";
 
 async function main() {
@@ -11,11 +12,16 @@ async function main() {
     },
   });
   const result = await build({
+    plugins: [...denoPlugins()],
     bundle: true,
     entryPoints: parsedArgs.input,
     outfile: parsedArgs.output,
   });
-  console.log(result);
+  if (result.errors.length > 0 || result.warnings.length > 0) {
+    console.log(result);
+    Deno.exit(1);
+  }
+
   Deno.exit();
 }
 
